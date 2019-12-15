@@ -1,0 +1,80 @@
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  #videoBG {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #videoBG {
+    width: auto;
+    height: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  #videoBG {
+    display: none;
+  }
+  body {
+    background: url("poster.jpg");
+    background-size: cover;
+  }
+}
+
+h1 {
+  color: rgb(185, 0, 40);
+  font-family: "Tangerine", cursive;
+  font-size: 10rem;
+}
+#videoBG {
+  position: fixed;
+  z-index: -1;
+}
+
+#texts-homepage {
+  margin-left: auto;
+  text-align: right;
+}
+
+.container {
+  margin-bottom: 300px;
+}
+
+h2 {
+  font-family: "Parisienne", cursive;
+}
+
+#surveyBtn {
+  margin: auto;
+}
+
+#enterBtn {
+  position: relative;
+  display: flex;
+  margin: auto;
+  margin-top: 30px;
+  width: auto;
+
+  text-align: center;
+}
+#enterBtn:hover {
+  color: rgb(185, 0, 40);
+  text-decoration: none;
+  border: 3px solid rgb(185, 0, 40);
+}
+
+/* #button-div:hover {
+  background-color: rgb(185, 0, 40);
+  color: grey;
+} */
