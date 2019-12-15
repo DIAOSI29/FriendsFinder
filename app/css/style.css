@@ -48,7 +48,7 @@ h1 {
 }
 
 .container {
-  margin-bottom: 300px;
+  margin-bottom: 100px;
 }
 
 h2 {
@@ -78,3 +78,31 @@ h2 {
   background-color: rgb(185, 0, 40);
   color: grey;
 } */
+
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 20px;
+  height: auto;
+  line-height: 20px;
+  margin: auto;
+  left: 30%;
+}
+
+#homepageOption a {
+  color: white;
+}
+
+.selectionWrapper {
+  display: grid;
+  position: relative;
+  grid-template-columns: 300px 1fr 300px;
+  grid-template-rows: auto;
+}
+
+.questionBoxes {
+  display: inline;
+  width: 300px;
+  border: 10px solid black;
+  margin-top: 100px;
+}
