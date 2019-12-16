@@ -1,22 +1,19 @@
 var friendsMale = require("../data/friendsMale");
 var friendsFemale = require("../data/friendsFemale");
 
-function matchingCompare(a, b) {
-  var matchingScore = 0;
-  for (let i = 0; i < a.scores.length; i++) {
-    matchingScore += Math.abs(
-      parseInt(a.scores[i].val()) - parseInt(b.scores[i].val())
-    );
-  }
-  return matchingScore;
-}
-
 module.exports = function(app) {
+  function matchingCompare(a, b) {
+    var matchingScore = 0;
+    for (let i = 0; i < a.scores.length; i++) {
+      matchingScore += Math.abs(parseInt(a.scores[i]) - parseInt(b.scores[i]));
+    }
+    return matchingScore;
+  }
   app.get("/api/friendsmale", function(req, res) {
-    res.json("../data/friendsMale.js");
+    res.json(friendsMale);
   });
   app.get("/api/friendsfemale", function(req, res) {
-    res.json("../data/friendsFemale.js");
+    res.json(friendsFemale);
   });
 
   app.post("/api/friendsmale", function(req, res) {
@@ -24,10 +21,19 @@ module.exports = function(app) {
     var comparisonArray = [];
     for (let i = 0; i < friendsFemale.length; i++) {
       comparisonArray.push(matchingCompare(req.body, friendsFemale[i]));
+      //   console.log(friendsFemale.length);
+      //   console.log(req.body);
+      //   console.log(friendsFemale[i]);
     }
-    let bestMatchScore = Math.min(comparisonArray);
+    // console.log(comparisonArray);
+    let bestMatchScore = Math.min(...comparisonArray);
+
     let bestMatchIndex = comparisonArray.findIndex(s => s == bestMatchScore);
     res.json(friendsFemale[bestMatchIndex]);
+    // console.log(bestMatchIndex);
+    // console.log(bestMatchScore);
+    // console.log(friendsFemale[bestMatchIndex]);
+    // console.log("testhere");
     comparisonArray = [];
   });
 
@@ -37,9 +43,9 @@ module.exports = function(app) {
     for (let i = 0; i < friendsMale.length; i++) {
       comparisonArray.push(matchingCompare(req.body, friendsMale[i]));
     }
-    let bestMatchScore = Math.min(comparisonArray);
+    let bestMatchScore = Math.min(...comparisonArray);
     let bestMatchIndex = comparisonArray.findIndex(s => s == bestMatchScore);
     res.json(friendsMale[bestMatchIndex]);
-    comparisonArray = [];
+    // console.log(friendsMale[bestMatchIndex]);
   });
 };
