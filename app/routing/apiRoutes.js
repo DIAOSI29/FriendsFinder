@@ -34,7 +34,6 @@ module.exports = function(app) {
     // console.log(bestMatchScore);
     // console.log(friendsFemale[bestMatchIndex]);
     // console.log("testhere");
-    comparisonArray = [];
   });
 
   app.post("/api/friendsfemale", function(req, res) {
